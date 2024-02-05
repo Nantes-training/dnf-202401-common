@@ -1,0 +1,39 @@
+name: Commit Message Check
+description: Verify Git commit messages meet the Group rules
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check Commit Messages
+      shell: bash
+      run: |
+        failure=0
+        for commit in $(git log --pretty=format:"%H" origin/${{github.base_ref}}..${{github.event.after}} )
+        do
+          echo "======================================"
+          echo "Checking commit: $commit"
+          message=$(git log --format=%B -n 1 $commit)
+          echo "Message: "
+          echo "$message"
+
+          exit_code=0
+          perl \
+            -0777 \
+            -ne \
+            'exit -1 if not m/^.{3,50}\R{2}((.{5,72})?\R)*(\[([A-Z0-9_]+-[0-9]+)*\])+(.|\R)*$/g' \
+            <<< "${message}" || \
+            exit_code=$?
+          if [ $exit_code -eq 0 ]
+          then
+            echo "-> Valid commit message"
+          else
+            echo "::error ::Invalid commit message"
+            failure=1
+          fi
+
+        done
+
+        if [ $failure -gt 0 ]
+        then
+          exit 1
+        fi
