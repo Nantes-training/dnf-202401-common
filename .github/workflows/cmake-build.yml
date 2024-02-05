@@ -15,7 +15,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-
+      with:
+        # need to fetch all for the commit check to work
+        fetch-depth: 0
+    
     - name: Check Commit Messages
       uses: Nantes-training/dnf-202401-common/.github/actions/commit-message-check@main
 
