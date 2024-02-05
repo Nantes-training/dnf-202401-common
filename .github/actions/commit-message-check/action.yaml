@@ -8,7 +8,7 @@ runs:
       shell: bash
       run: |
         failure=0
-        for commit in $(git log --pretty=format:"%H" origin/${{github.base_ref}}..${{github.event.after}} )
+        for commit in $(git log --pretty=format:"%H" origin/${{github.base_ref}}..${{github.sha}} )
         do
           echo "======================================"
           echo "Checking commit: $commit"
