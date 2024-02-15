@@ -10,3 +10,18 @@ Features:
 - Install your appliance
 - Interact with customers
 - You can have superpower that helps you install more appliances and quicked etc...
+
+## How to build (in wsl)
+Create a build directory and navigate in it:<br/>
+```shell
+mkdir build
+cd build
+```
+
+In the build directory, launch cmake, and build within make:<br/>
+```shell
+cmake ..
+make
+```
+
+>Note: cmake shall be installed on the system, and added in the path environment variable
