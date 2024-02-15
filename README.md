@@ -16,3 +16,6 @@ Features:
 
 
 MON README C'EST LE PLUS BEAU DE TOUS XOXOXO
+
+
+NL : Ajout de texte avec PL
