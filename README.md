@@ -11,8 +11,6 @@ Features:
 - Interact with customers
 - You can have superpower that helps you install more appliances and quicked etc...
 
-
-
-
-
 MON README C'EST LE PLUS BEAU DE TOUS XOXOXO
+
+Pouet;
