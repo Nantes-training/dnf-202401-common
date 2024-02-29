@@ -12,4 +12,3 @@ Features:
 - You can have superpower that helps you install more appliances and quicked etc...
 
 - Python is better than C++
-
